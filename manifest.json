@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "AdSkipper",
+  "version": "1.0",
+  "description": "Automatically skips or accelerates YouTube ads if unskippable after 5 seconds.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
